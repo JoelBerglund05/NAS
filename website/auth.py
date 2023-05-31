@@ -1,9 +1,9 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from .models import User
-from .sign_in_up import Hash, Encryptor
+#from .sign_in_up import Hash, Encryptor
 from . import db   # Means from __init__.py import db
 from flask_login import login_user, login_required, logout_user, current_user
-from Crypto.Cipher import AES
+#from Crypto.Cipher import AES
 
 
 auth = Blueprint('auth', __name__)
@@ -54,7 +54,7 @@ def sign_up():
         elif len(password1) < 7:
             flash('Password must be at least 7 characters.', category='error')
         else:
-            new_key = Encryptor.gen_key()
+            #new_key = Encryptor.gen_key()
             new_user = User(username=username, password=Hash.get_hash(password1, 15))
             db.session.add(new_user)
             db.session.commit()

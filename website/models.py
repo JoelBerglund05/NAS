@@ -15,3 +15,9 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(150))
     key = db.Column(db.String(256))
     notes = db.relationship('Note')
+
+class EnviromentDetails(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    humidity = db.Column(db.Float(100))
+    dateTime = db.Column(db.DateTime(timezone=True), default=func.now())
+    location = db.Column(db.String(32))

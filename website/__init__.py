@@ -15,9 +15,11 @@ def create_app():
 
     from .views import views
     from .auth import auth
+    from .humidity import humidityBp
 
     app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(auth, utl_prefix='/')
+    app.register_blueprint(humidityBp, url_prefix = '/')
 
     from .models import User, Note
 
