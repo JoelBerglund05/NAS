@@ -2,7 +2,11 @@
 from sense_hat import SenseHat
 import time
 
-def functionname(humidity):
-    while True:
-        humidity = sense.get_humidity()
-        time.sleep(300)
+def value():
+    sense = SenseHat()
+    sense.clear()
+    humidity = sense.get_humidity()
+    return humidity
+    time.sleep(30)
+
+
