@@ -10,21 +10,13 @@ humidityBp = Blueprint('humidity', __name__)
 @humidityBp.route('/Upload', methods = ['POST'])
 def UploadData():
     humidity_data = request.form['humidity']
-    time = datetime.date.today()
-    location = request.form['location']
-    data = {
-        'data': {
-            'humidity':humidity_data,
-            'location':location,
-            'time':time,
-        }
-    }
-    EnviromentDetails(humidity = data[0], location = data[1], dateTime = data[2])
-    return data
+    time_data = datetime.date.today()
+    location_data = request.form['location']
+    EnviromentDetails(humidity = humidity_data, location = location_data, dateTime = time_data)
 
 
 @humidityBp.route('/viewdata', methods = ['GET',])
-def home():
+def VeiwData():
     return render_template('view_data.html')
 
 
