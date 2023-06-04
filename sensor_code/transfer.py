@@ -1,4 +1,3 @@
-from flask import Flask,request
 import requests
 
 
@@ -15,4 +14,3 @@ formResponse = requests.post(
         'Content-Type': 'application/x-www-form-urlencoded'
 
     })
-
