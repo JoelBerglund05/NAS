@@ -13,7 +13,10 @@ def UploadData():
     humidity_data = request.form['humidity']
     time_data = datetime.date.today()
     location_data = request.form['location']
-    EnviromentDetails(humidity = humidity_data, location = location_data, dateTime = time_data)
+    print(humidity_data, time_data, location_data)
+    data = EnviromentDetails(humidity = humidity_data, location = location_data, dateTime = time_data)
+    db.session.add(data)
+    db.session.commit()
     return render_template('upload.html', user=current_user)
 
 @humidityBp.route('/viewdata', methods = ['GET'])
