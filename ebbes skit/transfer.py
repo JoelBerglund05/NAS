@@ -10,7 +10,6 @@ data = {
 }
 
 formResponse = requests.post(
-    url+'/Upload',
     data=data,
     headers= {
         'Content-Type': 'application/x-www-form-urlencoded'
