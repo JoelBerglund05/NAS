@@ -7,15 +7,15 @@ from .models import EnviromentDetails
 
 humidityBp = Blueprint('humidity', __name__)
 
-@humidityBp.route('/Upload', methods = ['POST'])
+@humidityBp.route('/Upload', methods = ['POST', 'GET'])
 def UploadData():
     humidity_data = request.form['humidity']
     time_data = datetime.date.today()
     location_data = request.form['location']
     EnviromentDetails(humidity = humidity_data, location = location_data, dateTime = time_data)
+    return render_template('upload.html')
 
-
-@humidityBp.route('/viewdata', methods = ['GET',])
+@humidityBp.route('/viewdata', methods = ['GET'])
 def VeiwData():
     return render_template('view_data.html')
 
