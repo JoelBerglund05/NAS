@@ -20,4 +20,4 @@ def UploadData():
 
 @humidityBp.route('/viewdata', methods = ['GET'])
 def VeiwData():
-    return render_template('view_data.html')
+    return render_template('view_data.html', user=current_user)
