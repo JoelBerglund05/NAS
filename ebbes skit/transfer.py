@@ -2,7 +2,6 @@ from flask import Flask,request
 import requests
 
 
-url = 'http://192.168.0.49:5000/Upload'
 
 data = {
     'humidity' : 22,
@@ -10,7 +9,8 @@ data = {
 }
 
 formResponse = requests.post(
-    data=data,
+    url = 'http://192.168.0.49:5000/Upload',
+    data=data ,
     headers= {
         'Content-Type': 'application/x-www-form-urlencoded'
 
