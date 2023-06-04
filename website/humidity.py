@@ -1,3 +1,4 @@
+from curses import flash
 import datetime
 from flask import Blueprint, render_template, request
 from flask_login import current_user
@@ -13,7 +14,7 @@ def UploadData():
     time_data = datetime.date.today()
     location_data = request.form['location']
     EnviromentDetails(humidity = humidity_data, location = location_data, dateTime = time_data)
-    return render_template('upload.html')
+    return render_template('upload.html', user=current_user)
 
 @humidityBp.route('/viewdata', methods = ['GET'])
 def VeiwData():
