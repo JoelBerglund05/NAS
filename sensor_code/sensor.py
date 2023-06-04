@@ -1,8 +1,8 @@
 
 from sense_hat import SenseHat
+import time
 
-sense = SenseHat()
-sense.clear()
-
-humidity = sense.get_humidity()
-print(humidity)
+def functionname(humidity):
+    while True:
+        humidity = sense.get_humidity()
+        time.sleep(300)
