@@ -1,12 +1,14 @@
 import requests
-import sense_hat
-from sensor import humidity
+from sense_hat import SenseHat
+from sensor import value
 
+while value:
+    return humidity
 
 
 
 data = {
-    'humidity' : humidity,
+    'humidity' : value(),
     'location' : 'swe'
 }
 
