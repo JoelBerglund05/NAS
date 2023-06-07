@@ -7,3 +7,6 @@ def value():
     humidity = sense.get_humidity()
     return humidity
 
+sense = SenseHat()
+
+sense.show_message("hoola")
