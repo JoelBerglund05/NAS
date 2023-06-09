@@ -3,7 +3,7 @@ import datetime
 from flask import Blueprint, render_template, request
 from flask_login import current_user
 from . import db
-from .models import EnviromentDetails
+from .models import EnviromentDetails, EnviromentDisplay
 
 
 humidityBp = Blueprint('humidity', __name__)
@@ -20,4 +20,4 @@ def UploadData():
 
 @humidityBp.route('/viewdata', methods = ['GET'])
 def VeiwData():
-    return render_template('view_data.html', user=current_user)
+    return render_template('view_data.html', user=current_user, humidity = EnviromentDisplay.sql_enviroment_details)
