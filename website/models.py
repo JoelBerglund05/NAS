@@ -22,6 +22,3 @@ class EnviromentDetails(db.Model):
     dateTime = db.Column(db.DateTime(timezone=True), default=func.now())
     location = db.Column(db.String(32))
 
-class EnviromentDisplay(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    sql_enviroment_details = db.relationship('enviromentdetails')

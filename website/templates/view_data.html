@@ -1,13 +1,10 @@
 
-{% extends "base.html" %} {% block title %}data{% endblock %}{% block headcontent %}<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+{% extends "base.html" %} {% block title %}data{% endblock %}{% block headcontent %}
     {% endblock %}
       
       {% block content %}
       <h1>Humidity</h1>
       <ul class="list-group list-group-flush" id="humidity">
-        {% for SqlList in humidity %}
-        <li class="list-group-item">{{ sql-list}}</li>
-        {% endfor %}
       </ul>
       {% endblock %}
       

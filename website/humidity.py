@@ -3,7 +3,7 @@ import datetime
 from flask import Blueprint, render_template, request
 from flask_login import current_user
 from . import db
-from .models import EnviromentDetails, EnviromentDisplay
+from .models import EnviromentDetails
 
 
 humidityBp = Blueprint('humidity', __name__)
@@ -20,4 +20,17 @@ def UploadData():
 
 @humidityBp.route('/viewdata', methods = ['GET'])
 def VeiwData():
-    return render_template('view_data.html', user=current_user, humidity = EnviromentDisplay.sql_enviroment_details)
+    try:
+        sql_data = db.session.execute(db.select(EnviromentDetails))
+
+        sock_text = '<ul>'
+        for data in sql_data:
+            sock_text += '<li>' + data.humidity + ', ' + data.dateTime + '</li>'
+        sock_text += '</ul>'
+        return sock_text
+    except Exception as e:
+        # e holds description of the error
+        error_text = "<p>The error:<br>" + str(e) + "</p>"
+        hed = '<h1>Something is broken.</h1>'
+        return hed + error_text
+    #return render_template('view_data.html', user=current_user, humidity = EnviromentDetails.query
