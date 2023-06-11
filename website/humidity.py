@@ -30,6 +30,4 @@ def VeiwData():
         # e holds description of the error
         error_text = "<p>The error:<br>" + str(e) + "</p>"
         hed = '<h1>Something is broken.</h1>'
-        print(e)
         return hed + error_text
-    #return render_template('view_data.html', user=current_user, humidity = EnviromentDetails.query
