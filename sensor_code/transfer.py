@@ -5,7 +5,7 @@ import time
 
 while True:
     data = {
-    'humidity' : '32',
+    'humidity' : value(),
     'location' : 'swe',
     'dateTime' : time.ctime()
     }
@@ -15,5 +15,5 @@ while True:
         headers= {
             'Content-Type': 'application/x-www-form-urlencoded'#
         })
-    time.sleep(3)
+    time.sleep(300)
 
