@@ -6,7 +6,3 @@ def value():
     sense.clear()
     humidity = sense.humidity
     return humidity
-
-sense = SenseHat()
-
-sense.show_message("hoola")
