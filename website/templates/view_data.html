@@ -1,11 +1,17 @@
-
 {% extends "base.html" %} {% block title %}data{% endblock %}{% block headcontent %}
     {% endblock %}
       
       {% block content %}
-      <h1>Humidity</h1>
-      <ul class="list-group list-group-flush" id="humidity">
-      </ul>
+      <h1 class="text-white">Humidity</h1>
+        <p class="text-white">
+        {% for text in list %}
+          {% if text != ':' %}
+          {{ text }}
+          {% else %}
+          <br>
+          {% endif %}
+        {% endfor %}
+      </p>
       {% endblock %}
       
   

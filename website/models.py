@@ -18,7 +18,7 @@ class User(db.Model, UserMixin):
 
 class EnviromentDetails(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    humidity = db.Column(db.Float(100))
-    dateTime = db.Column(db.DateTime(timezone=True), default=func.now())
+    humidity = db.Column(db.String(100))
+    dateTime = db.Column(db.String(32))
     location = db.Column(db.String(32))
 

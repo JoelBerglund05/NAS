@@ -21,16 +21,15 @@ def UploadData():
 @humidityBp.route('/viewdata', methods = ['GET'])
 def VeiwData():
     try:
-        sql_data = db.session.execute(db.select(EnviromentDetails))
-
-        sock_text = '<ul>'
+        sql_data = db.session.execute(db.select(EnviromentDetails)).scalars()
+        list = ''
         for data in sql_data:
-            sock_text += '<li>' + data.humidity + ', ' + data.dateTime + '</li>'
-        sock_text += '</ul>'
-        return sock_text
+            list += (data.humidity + '% , ' + data.dateTime + ':')
+        return render_template('view_data.html', list=list, user=current_user) 
     except Exception as e:
         # e holds description of the error
         error_text = "<p>The error:<br>" + str(e) + "</p>"
         hed = '<h1>Something is broken.</h1>'
+        print(e)
         return hed + error_text
     #return render_template('view_data.html', user=current_user, humidity = EnviromentDetails.query
