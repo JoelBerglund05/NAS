@@ -15,5 +15,5 @@ while True:
         headers= {
             'Content-Type': 'application/x-www-form-urlencoded'#
         })
-    time.sleep(300)
+    time.sleep(10)
 
